@@ -1,0 +1,24 @@
+{
+  "name": "el-huevazo",
+  "version": "1.0.0",
+  "description": "Sistema de pedidos, cobros y pagos a granjas de El Huevazo, con control financiero exclusivo del dueño",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node scripts/arranque.js",
+    "start:servidor": "node src/server.js",
+    "db:migrar": "node scripts/migrar.js",
+    "db:crear-dueno": "node scripts/crear-dueno.js",
+    "db:demo": "node scripts/demo.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "helmet": "8.0.0",
+    "pg": "8.13.1",
+    "zod": "3.24.1"
+  }
+}
