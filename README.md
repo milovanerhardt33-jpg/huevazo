@@ -61,7 +61,6 @@ No hace falta ningún archivo de configuración: Railway detecta Node.js y ejecu
    | Variable | Valor |
    |---|---|
    | `DATABASE_ADMIN_URL` | `${{Postgres.DATABASE_URL}}` (Railway completa la conexión interna) |
-   | `APP_DB_PASSWORD` | Una clave larga al azar, de al menos 12 caracteres. No la vas a tener que escribir nunca |
    | `DUENO_EMAIL` | El email con el que vas a entrar como dueño |
    | `DUENO_PASSWORD` | La contraseña del dueño, de al menos 10 caracteres |
    | `DUENO_NOMBRE` | Tu nombre (opcional) |

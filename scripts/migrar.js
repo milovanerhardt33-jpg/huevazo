@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import pg from 'pg';
 import { config } from '../src/config.js';
+import { claveApp } from './clave-app.js';
 
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'db');
 const SIEMPRE = new Set(['003_permisos.sql']); // los permisos se reaplican en cada migración
@@ -12,7 +13,7 @@ const SIEMPRE = new Set(['003_permisos.sql']); // los permisos se reaplican en c
 const c = new pg.Client({ connectionString: config.databaseAdminUrl });
 await c.connect();
 try {
-  const clave = process.env.APP_DB_PASSWORD;
+  const clave = claveApp();
   if (!clave || clave.length < 12) throw new Error('APP_DB_PASSWORD debe tener al menos 12 caracteres');
   const { rowCount } = await c.query("SELECT 1 FROM pg_roles WHERE rolname = 'huevazo_app'");
   const sql = rowCount ? 'ALTER ROLE huevazo_app WITH LOGIN PASSWORD '
